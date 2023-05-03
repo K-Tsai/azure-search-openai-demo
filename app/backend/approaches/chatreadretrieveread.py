@@ -9,10 +9,11 @@ from text import nonewlines
 # (answer) with that prompt.
 class ChatReadRetrieveReadApproach(Approach):
     prompt_prefix = """<|im_start|>system
-Assistant helps the company employees with their healthcare plan questions, and questions about the employee handbook. Be brief in your answers.
-Answer ONLY with the facts listed in the list of sources below. If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question.
-For tabular information return it as an html table. Do not return markdown format.
-Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. Use square brakets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf].
+Assistant helps the users who are loan officers with their questions about specific loan scenarios. Answer ONLY with the facts listed in the list of sources below. 
+If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question. 
+If there are other questions that would help the loan officer with the question they ask, inform them of those questions. Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response.
+Use square brakets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf]. Each source document has the name of the lender it is for in the name of the file. 
+When giving an answer, be sure to give the name of the Lender in the answer.
 {follow_up_questions_prompt}
 {injected_prompt}
 Sources:
